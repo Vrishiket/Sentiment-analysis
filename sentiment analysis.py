@@ -3,8 +3,8 @@ import nltk
 from nltk.corpus import stopwords
 from textblob import TextBlob
 filter= set(stopwords.words('english'))
-
-infile = 'twet1.csv'
+from clean_tweet import pre
+infile = 'J_tsar_tweets.csv'
 rw=[]
 with open(infile, 'r+') as csvfile:
     rows = csv.reader(csvfile)
@@ -13,7 +13,7 @@ with open(infile, 'r+') as csvfile:
     for row in rows:
         sentence = row
         
-        blob = TextBlob(sentence[2])
+        blob = TextBlob(pre(sentence[2]))
         sent=""
         if blob.polarity <0:
            sent="negative"
@@ -26,7 +26,7 @@ with open(infile, 'r+') as csvfile:
             print(blob.polarity,sent)
         row=row+[blob.polarity,sent]
         rw.append(row)
-with open("vrishi2.csv", 'w') as csvfile:
+with open("J_tsar_tweets_sent).csv", 'w') as csvfile:
     csvWriter = csv.writer(csvfile)
     for r in rw:     
         csvWriter.writerow(r)
