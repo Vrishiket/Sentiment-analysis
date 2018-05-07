@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon May  7 17:22:08 2018
-
+JKGV
 @author: vrsali
 """
 def pre(tweet):
@@ -13,7 +13,7 @@ def pre(tweet):
             [:=;] # Eyes
             [oO\-]? # Nose (optional)
             [D\)\]\(\]/\\OpP] # Mouth
-        )"""
+        )"""        
      
     regex_str = [
         emoticons_str,
