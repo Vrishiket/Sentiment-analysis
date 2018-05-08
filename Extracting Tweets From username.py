@@ -5,6 +5,8 @@
 
 import tweepy #https://github.com/tweepy/tweepy
 import csv
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 
 #Twitter API credentials
 consumer_key = '12UCbopLPIyQ3S32G0bf6kNYX'
@@ -53,9 +55,12 @@ def get_all_tweets(screen_name):
 	print (outtweets)
 	#write the csv	
 	with open('%s_tweets.csv' % screen_name, 'w') as f:
-		writer = csv.writer(f)
-		writer.writerow(["id","created_at","text"])
-		writer.writerows(outtweets)
+           word_tokens = word_tokenize(writer)  
+           writer = csv.writer(f)
+             
+          
+             writer.writerow(["id","created_at","text"])
+             writerows(outtweets)
 #	
 	pass
 
